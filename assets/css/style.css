@@ -1,3 +1,7 @@
+/* Note: 
+- The child class inherit its parent height and width
+- Pseudo class: root, hover, active, first-child, last-child */
+
 * {
     padding: 0;
     margin: 0;
@@ -92,7 +96,8 @@ html {
     left: 0;
     right: 0;
     z-index: 1;
-    overflow: hidden;
+    /* hide the children that overflow the parent, initial value: visible
+    overflow: hidden;  */
 }
 
 #nav {
@@ -153,10 +158,17 @@ html {
     font-size: 12px;
 }
 
+#header .mobile-menu-btn {
+    position: absolute; 
+    top : 0; 
+    right: 0;
+    display: none;
+}
+
 #header .mobile-menu-btn,
 #header .search-button {   
     float: right; 
-    padding: 0 21px;     
+    padding: 0 21px;
 }
 
 #header .search-button:hover {   
@@ -175,7 +187,7 @@ html {
 #header .menu-icon,
 #header .search-icon {
     color: #fff;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 46px;
 }
 
@@ -183,7 +195,7 @@ html {
     position: relative;
     margin-top: 46px;
     padding-top: 50%;
-    background: url('/assets/img/slider/slider1.jpg') top center / cover no-repeat;
+    background: url('/assets/img/cover_pic.png') top center / cover no-repeat;
 }
 
 #slider .text-content {

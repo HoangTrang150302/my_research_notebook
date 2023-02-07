@@ -16,30 +16,21 @@
             <!-- Begin: nav -->
             <ul id="nav">
                 <li><a href="#">Home</a></li>
-                <li><a href="#band">Band</a></li>
-                <li><a href="#tour">Tour</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li>
-                    <a href="">
-                        More
-                        <i class="nav-arrow-down ti-angle-down"></i>
-                    </a>
-                    <ul class="subnav">
-                        <li><a href="#">Merchandise</a></li>
-                        <li><a href="#">Extra</a></li>
-                        <li><a href="#">Media</a></li>
-                    </ul>
-                </li>                
+                <li><a href="#band">About me</a></li>
+                <li><a href="#tour">My project</a></li>
+                <li><a href="#contact">Article</a></li>            
             </ul>
             <!-- End: nav -->
+
+            <!-- Begin: mobile menu button -->
+            <div id="mobile-menu" class="mobile-menu-btn">
+                <i class="menu-icon ti-menu"></i>  
+            </div>
+            <!-- End: mobile menu button -->
 
             <!-- Begin: search -->
             <div class="search-button">
                 <i class="search-icon ti-search"></i>                 
-            </div>
-
-            <div id="mobile-menu" class="mobile-menu-btn">
-                <i class="menu-icon ti-menu"></i>  
             </div>
             <!-- End: search -->
 
@@ -47,18 +38,18 @@
 
         <div id="slider">
             <div class="text-content">
-                <h2 class="text-heading">Chicago</h2>
-                <div class="text-description">Thank you, Chicago - A night we won't forget.</div>
+                <h2 class="text-heading">Trang Hoang</h2>
+                <div class="text-description">Hi! I'm Trang Hoang and this is my website</div>
             </div>            
         </div>
 
         <div id="content">
             <!-- About section -->
             <div id="band" class="content-section">
-                <h2 class="section-heading">The band</h2>
-                <p class="section-sub-heading">We love music</p>
+                <h2 class="section-heading">About me</h2>
+                <p class="section-sub-heading">Trang Hoang</p>
                 <p class="about-text">
-                    We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Hi, my name is Trang Hoang and I am majoring in Computer Science. I am a transfer student. During my time studying computer science, the courses that attract me the most are software engineering, data structures, algorithms, and probabilities and statistics. These courses help me have a basic foundation of the software development industry, and from there I can build my projects. I know some programming languages like Java, C++, and Python. Data Science, Web development, and Software Engineering are some fields in Computer Science that I’m interested in.
                 </p>
                 <div class="row member-list">
                     <div class="col col-third text-center">
@@ -80,15 +71,8 @@
             <div id="tour" class="tour-section">
                 <div class="content-section">
                     <h2 class="section-heading text-white">Tour date</h2>
-                    <p class="section-sub-heading text-white">Remember to book your tickets!</p>
-                    
-                    <!-- Ticket -->
-                    <ul class="ticket-list">
-                        <li>September <span class="sold-out">Sold out</span></li>
-                        <li>October <span class="sold-out">Sold out</span></li>
-                        <li>November <span class="quantity">3</span></li>
-                    </ul>     
-                    
+                    <p class="section-sub-heading text-white">Remember to book your tickets!</p>                    
+                 
                     <div class="row place-list">
                         <div class="col col-third">
                             <img src="./assets/img/places/newyork.jpg" alt="New York" class="place-img">
@@ -246,10 +230,34 @@
             event.stopPropagation()
         })
 
+        // Responsive
         var header = document.getElementById('header');
         var mobileMenu = document.getElementById('mobile-menu');
+        var headerHeight = header.clientHeight;
+
+        // Open and close mobile menu
         mobileMenu.onclick = function () {
-            var isClose = header.clientHeight === 46;
+            var isClose = header.clientHeight === headerHeight;
+            if (isClose) {
+                header.style.height = 'auto';
+            } else {
+                header.style.height = null;
+            }
+        }
+
+        // Automatic close when choose menu
+        var menuItems = document.querySelectorAll('#nav li a[href*="#"]');
+        for (var i = 0; i < menuItems.length; i++) {
+            var menuItem = menuItems[i];
+            
+            menuItem.onclick = function() {
+                var isParentMenu = this.nextElementSibling && this.nextElementSibling.classList.contains("subnav");
+                if (isParentMenu) {
+                    event.preventDefault(); // bo di hanh vi mac dinh
+                } else {
+                    header.style.height = null; // hide menu
+                }                
+            }
         }
     </script>
     
