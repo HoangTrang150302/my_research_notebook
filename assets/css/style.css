@@ -268,40 +268,17 @@ html {
     border-radius: 4px;
 }
 
-/* Tour section */
-.tour-section {
+/* Project section */
+.project-section {
     background-color: #000;
 }
 
-.ticket-list {
-    background-color: #fff;
-    margin-top: 40px;
-    list-style: none;
-}
-
-.ticket-list li {
-    color: #757575;
+.project-text {
     font-size: 15px;
-    padding: 11px 16px;
-    border-bottom: 1px solid #ddd;
-}
-
-.ticket-list .sold-out {
-    background-color: #f44336;
+    margin-top: 25px;
+    text-align: justify;
+    line-height: 1.4;
     color: #fff;
-    padding: 3px 4px;
-    margin-left: 16px;
-}
-
-.ticket-list .quantity {
-    float: right;
-    width: 24px;
-    background-color: #000;
-    color: #fff;
-    border-radius: 50%;
-    line-height: 24px;
-    text-align: center;
-    margin-top: -3px;
 }
 
 /* Places */
